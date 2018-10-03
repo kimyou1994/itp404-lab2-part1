@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <title>Client-side Templating</title>
+	</head>
+	<body>
+		<div id="loading"></div>
+		<template id="result-template">
+			{{#each data}}
+				<div class="data">
+					<p>Name: {{name}}</p>
+					<p>Location: {{location}}</p>
+					<p>Owned By:</p>
+					<ul>
+						{{#each ownedBy}}
+							<li>{{this}}</li>
+						{{/each}}
+					</ul>
+					<p><a href={{yelpPage}} target="_blank">Check us out on Yelp!</a></p>
+					{{#if acceptsApplePay}}
+						<img width="100px" src="http://files.softicons.com/download/system-icons/apple-logo-icons-by-thvg/ico/Apple%20logo%20icon%20-%20Aluminum.ico">
+					{{else}}
+						<p>No Apple Pay</p>
+					{{/if}}
+				</div> 
+			{{/each}}
+		</template>
+		<script src="jquery-3.3.1.js"></script>
+		<script src="handlebars-v4.0.11.js"></script>
+		<script src="main.js"></script>
+
+	</body>
+</html>
